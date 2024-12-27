@@ -1,0 +1,32 @@
+body{
+    font-family: "Press Start 2P", serif;
+    background-color: #e3981e;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContainer{
+    background-color: #f6d21b;
+    margin: 0 auto;
+}
+
+.searchCont{
+    display: inline-block;
+}
+
+.searchBar{
+    border: none;
+    padding: 7px;
+}
+
+.searchBar:focus{
+    outline: none;
+}
+
+.searchButton{
+    border: none;
+    padding: 7px;
+    font-size: 1rem;
+    color: white;
+}

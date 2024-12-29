@@ -17,7 +17,7 @@ body{
 
 .searchBar{
     border: none;
-    padding: 7px;
+    padding: 20px;
 }
 
 .searchBar:focus{
@@ -29,4 +29,138 @@ body{
     padding: 7px;
     font-size: 1rem;
     color: white;
+}
+
+.spriteContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table{
+    display: flex;
+    justify-content: center;
+}
+
+th, td{
+    text-align: center;
+    border: solid;
+    padding: 20px;
+}
+
+#types{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.grass{
+    background-color: green;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+.poison{
+    background-color: plum;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.fire{
+    background-color: orangered;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.flying{
+    background-color: plum;
+    padding: 10px;
+    border-radius: 10px;;
+}
+
+.water{
+    background-color: #42a1ff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.bug{
+    background-color: #aabb23;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.normal{
+    background-color: #b7b7aa;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.electric{
+    background-color: #e3981e;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.ground{
+    background-color: #dfba52;
+    padding: 10px;
+    border-radius: 10px;
+    color: #821f08;
+}
+
+.fairy{
+    background-color: #ed99ed;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.ice{
+    background-color: #66ccfe;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.fighting{
+    background-color: #d3887e;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.psychic{
+    background-color: #ff66a3;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.rock{
+    background-color: #baaa66;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.ghost{
+    background-color: #9995d0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dragon{
+    background-color: #9e93f1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dark{
+    background-color: #b59682;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.steel{
+    background-color: #abaabb;
+    padding: 10px;
+    border-radius: 10px;
 }

@@ -4,7 +4,7 @@ const armor = document.getElementById("defense");
 const ss = document.getElementById("special-attack");
 const sd = document.getElementById("special-defense");
 const theSpeed = document.getElementById("speed");
-const name = document.getElementById("pokemon-name");
+const theName = document.getElementById("pokemon-name");
 const theId = document.getElementById("pokemon-id");
 const theWeight = document.getElementById("weight");
 const theHeight = document.getElementById("height");
@@ -30,58 +30,57 @@ function clearDisplay() {
 }
 
 const fetchData = async () => {
-  const userInput = searchInput.value.toLowerCase();
+  if (searchInput.value === "") {
+    console.log("There's no input");
+    return;
+  }
 
   try {
-    if (userInput === "") {
-      console.log("There's no input");
-      return;
-    }
-
     const response = await fetch(
       "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/" +
-        String(userInput)
+        String(searchInput.value.toLowerCase())
     );
     const data = await response.json();
 
-    console.log(
-      data.types.map((abc) => {
-        console.log(abc.type.name);
-      })
-    );
+    console.log(data);
+
+    const { name, id, weight, height, types, stats, sprites } = data;
+
+    console.log(name);
 
     //Displays
-    name.textContent = data.name;
-    theId.textContent = `#${data.id}`;
-    theWeight.textContent = `Weight: ${data.weight}`;
-    theHeight.textContent = `Height: ${data.height}`;
+    theName.innerHTML = name.toUpperCase();
+    theId.innerHTML = `#${id}`;
+    theWeight.innerHTML = `Weight: ${weight}`;
+    theHeight.innerHTML = `Height: ${height}`;
 
-    theType.innerHTML = data.types
+    theType.innerHTML = types
       .map(
         (pokemonType) =>
           `<span class='${pokemonType.type.name}'>${pokemonType.type.name}</span>`
       )
       .join("");
 
-    health.textContent = data.stats[0].base_stat;
-    damage.textContent = data.stats[1].base_stat;
-    armor.textContent = data.stats[2].base_stat;
-    ss.textContent = data.stats[3].base_stat;
-    sd.textContent = data.stats[4].base_stat;
-    theSpeed.textContent = data.stats[5].base_stat;
+    health.innerHTML = stats[0].base_stat;
+    damage.innerHTML = stats[1].base_stat;
+    armor.innerHTML = stats[2].base_stat;
+    ss.innerHTML = stats[3].base_stat;
+    sd.innerHTML = stats[4].base_stat;
+    theSpeed.innerHTML = stats[5].base_stat;
     imgContainer.innerHTML = `
-      <img src='${data.sprites.front_default}' id='sprite' class='container'/>
+      <img src='${sprites.front_default}' id='sprite' class='container'/>
     `;
 
     searchInput.value = "";
   } catch (theError) {
-    clearDisplay();
     alert("Pokémon not found");
+    clearDisplay();
   }
 };
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
+    e.preventDefault();
     fetchData();
   }
 });
